@@ -1,9 +1,9 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: INSEE Communes Proxy
   version: 1.0.0
 servers:
-  - url: https://insee-gpt-proxy.onrender.com      # ← mets ICI ton URL Render réelle
+  - url: https://insee-communes-gpt-proxy.onrender.com
 paths:
   /insee/communes:
     get:
@@ -38,5 +38,6 @@ components:
     basicAuth:
       type: http
       scheme: basic
+  schemas: {}         
 security:
   - basicAuth: []
