@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: INSEE Communes Proxy
+  version: 1.0.0
+servers:
+  - url: https://insee-gpt-proxy.onrender.com      # ← mets ICI ton URL Render réelle
+paths:
+  /insee/communes:
+    get:
+      operationId: getCommunesLoire
+      summary: Communes du département 42 (Loire)
+      parameters:
+        - name: codeDepartement
+          in: query
+          schema:
+            type: string
+          required: false
+          example: "42"
+        - name: champs
+          in: query
+          schema:
+            type: string
+          required: false
+          example: "code,nom"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+      security:
+        - basicAuth: []
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+security:
+  - basicAuth: []
